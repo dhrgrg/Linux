@@ -1,0 +1,107 @@
+#!/bin/bash --> execute script using Bash interpreter
+
+bash script.sh or ./script.sh
+
+# give permission
+chmod +x script.sh
+./script.sh
+
+NAME="Madhuri"
+echo $NAME
+
+read USERNAME
+echo $USERNAME
+
+read -p "enter user name : " USERNAME
+echo $USERNAME
+
+Store command output:
+DATE=$(date)
+
+echo $?
+# if 1 --> failed
+# if 0 --> success
+
+# IF Conditions
+#! /bin/bash
+read -p "enter user name : " username
+echo "user name is "$username" "
+if [ $username = "Dhruv" ]
+then
+  echo "user name matched"
+else
+  echo "user name didn't match"
+fi 
+# if written in backward so that bash can know that if has ended. 
+
+
+# remember for numeric handle like below:
+| Operator | Meaning       |
+| -------- | ------------- |
+| `-eq`    | equal         |
+| `-ne`    | not equal     |
+| `-gt`    | greater than  |
+| `-lt`    | less than     |
+| `-ge`    | greater/equal |
+| `-le`    | less/equal    |
+
+
+# remember for string handle like below:
+| Operator | Meaning      |
+| -------- | ------------ |
+| `=`      | equal        |
+| `!=`     | not equal    |
+| `-z`     | empty string |
+| `-n`     | non-empty    |
+
+# file test operators
+| Test | Meaning          |
+| ---- | ---------------- |
+| `-f` | file exists      |
+| `-d` | directory exists |
+| `-r` | readable         |
+| `-w` | writable         |
+| `-x` | executable       |
+| `-s` | file not empty   |
+
+
+if [ -f file.txt ]
+then
+   echo "Exists"
+fi
+
+# LOOP
+# 1. for loop
+for i in 1 2 3
+do
+   echo $i
+done
+
+# 2. while loop
+COUNT=1
+while [ $COUNT -le 5 ]
+do
+   echo $COUNT
+   COUNT=$((COUNT+1))
+done
+
+# arithmatic
+NUM=$((5+3))
+echo $NUM
+
+# function
+greet() {
+   echo "Hello"
+}
+greet
+
+# Arguments
+| Variable | Meaning             |
+| -------- | ------------------- |
+| `$1`     | first argument      |
+| `$2`     | second argument     |
+| `$#`     | number of arguments |
+| `$@`     | all arguments       |
+
+echo $1  --> bash script.sh DevOps
+
