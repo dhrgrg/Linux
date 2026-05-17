@@ -89,6 +89,17 @@ done
 NUM=$((5+3))
 echo $NUM
 
+| Operator | Meaning             | Example     | Result |
+| -------- | ------------------- | ----------- | ------ |
+| `+`      | Addition            | `$((5+2))`  | 7      |
+| `-`      | Subtraction         | `$((5-2))`  | 3      |
+| `*`      | Multiplication      | `$((5*2))`  | 10     |
+| `/`      | Division            | `$((10/2))` | 5      |
+| `%`      | Modulus (remainder) | `$((10%3))` | 1      |
+| `**`     | Power               | `$((2**3))` | 8      |
+
+
+
 # function
 greet() {
    echo "Hello"
