@@ -1,0 +1,25 @@
+problem 3: Student Percentage and Pass/Fail Decision
+Take marks of 3 subjects.
+Calculate:
+• Total marks
+• Percentage
+Conditions:
+• Percentage ≥ 40
+• AND every subject mark ≥ 33
+Print:
+• Percentage
+• Pass or Fail
+
+#!/bin/bash
+read -p "enter marks scored on subject 1 :" sub1
+read -p "enter marks scored on subject 2 :" sub2
+read -p "enter marks scored on subject 3 :" sub3
+total=$(($sub1+$sub2+$sub3))
+Percentage=$((($total/300)*100))
+echo "Percentage scored by candidate is $Percentage"
+if [[ $Percentage -ge 40 && $sub1 -ge 33 && $sub2 -ge 33 && $sub3 -ge 33 ]]; then
+    echo "$Percentage and candidate is passed"
+else
+    echo "$Percentage and candidate is failed"
+fi
+
