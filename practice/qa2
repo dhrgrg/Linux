@@ -1,0 +1,32 @@
+Problem 2: Shopping Bill with Discount
+Take:
+• Item price
+• Quantity
+Calculate total amount.
+Conditions:
+• If total amount > 1000 AND quantity > 5 → apply 10% discount
+• Otherwise normal total
+Print:
+• Total amount
+• Discount (if any)
+• Final payable amount
+
+#! bin/bash
+read -p "enter price : " price
+read -p "enter quantity : " quantity
+amount=$(($price*$quantity))
+echo "Total amount : $amount"
+if [[ $amount -gt 1000 && $quantity -gt 5 ]];
+then
+    echo "Discount will be applied ! "
+    finalamount=$(($amount*90/100))
+    echo "Amount to be paid is $finalamount"
+else
+    echo " Not eligible for discount"
+    echo "Amount to be paid is $amount"
+
+fi
+
+# mistake i have made:
+    syntax in [[ $amount -gt 1000 && $quantity -gt 5 ]]; --> only outer double brackets
+    finalamount=$(($amount*90/100)) --> syntax error: invalid arithmetic operator (error token is ".9") --> does not support decimal
