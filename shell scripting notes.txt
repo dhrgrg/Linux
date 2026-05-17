@@ -116,3 +116,4 @@ greet
 
 echo $1  --> bash script.sh DevOps
 
+In bash, “Everything is text unless arithmetic context forces numeric interpretation.”
