@@ -23,3 +23,53 @@ else
     echo "$Percentage and candidate is failed"
 fi
 
+
+
+Production-Level Improved Version
+
+#!/bin/bash
+
+# Read marks from user
+read -p "Enter marks scored in subject 1: " sub1
+read -p "Enter marks scored in subject 2: " sub2
+read -p "Enter marks scored in subject 3: " sub3
+
+# Validate numeric input using regex
+# ^[0-9]+$ means:
+# ^ -> start
+# [0-9]+ -> one or more digits
+# $ -> end
+
+if ! [[ $sub1 =~ ^[0-9]+$ && $sub2 =~ ^[0-9]+$ && $sub3 =~ ^[0-9]+$ ]]
+then
+    echo "Invalid input. Please enter numeric marks only."
+    exit 1
+fi
+
+# Validate range
+if [[ $sub1 -gt 100 || $sub2 -gt 100 || $sub3 -gt 100 ]]
+then
+    echo "Marks cannot exceed 100."
+    exit 1
+fi
+
+# Calculate total
+total=$((sub1 + sub2 + sub3))
+
+# Calculate percentage using bc for decimal support
+percentage=$(echo "scale=2; ($total*100)/300" | bc)
+
+# Display percentage
+echo "Percentage scored by candidate is: $percentage%"
+
+# Pass/fail logic
+# Decimal comparison handled using bc
+
+if (( $(echo "$percentage >= 40" | bc -l) )) \
+   && [[ $sub1 -ge 33 && $sub2 -ge 33 && $sub3 -ge 33 ]]
+then
+    echo "Candidate is PASSED"
+else
+    echo "Candidate is FAILED"
+fi
+
