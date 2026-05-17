@@ -1,0 +1,22 @@
+Problem 1: Age Eligibility and Type Conversion
+Ask the user to enter their birth year. Calculate their age assuming current year is 2026.
+Check if the person is:
+• 18 years or older
+• Age less than or equal to 60
+Print:
+• Age
+• Whether the person belongs to the “working age group”.
+
+
+#! /bin/bash
+currentyear=2026
+read -p " Enter your birth year:  " birthyear
+age=$(("$currentyear"-"$birthyear"))
+echo "age of user is $age. "
+if [ $age -le 18 ]; then
+        echo "User is underage"
+elif [ $age -le 60 ]; then
+        echo "User belongs to working age group"
+else
+        echo "User older then 60 years"
+fi
