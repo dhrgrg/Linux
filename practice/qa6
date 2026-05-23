@@ -8,3 +8,10 @@ Conditions:
 Print whether the person is eligible for a loan.
 
 #!/bin/bash
+read -p "monthly income : " income
+read -p "monthly age : " age
+if [ $income -ge 25000 ] && [ $age -ge 21 ] && [ $age -le 60 ]; then
+        echo "eligible"
+else
+        echo "Not eligible"
+fi
