@@ -8,7 +8,7 @@ Print:
 • Whether the person belongs to the “working age group”.
 
 
-#! /bin/bash
+#!/bin/bash
 currentyear=2026
 read -p " Enter your birth year:  " birthyear
 age=$(("$currentyear"-"$birthyear"))

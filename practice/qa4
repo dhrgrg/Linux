@@ -1,0 +1,21 @@
+Problem 4: Number Comparison with Arithmetic Result
+Take two numbers as input.
+Perform:
+• Addition
+• Multiplication
+Check:
+• Sum greater than product OR both numbers equal
+Print suitable messages.
+
+
+#!bin/bash
+read -p "Enter first number : " num1
+read -p "Enter second number : " num2
+sum=$(($num1+$num2))
+product=$(($num1*$num2))        
+if [[ $sum -gt $product || $num1 -eq $num2 ]];
+then
+    echo "Sum is greater than product OR both numbers are equal"
+else
+    echo "Product is greater than sum AND both numbers are not equal"
+fi

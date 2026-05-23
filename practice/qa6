@@ -1,0 +1,10 @@
+Problem 6: Loan Eligibility
+Take:
+• Monthly income
+• Age
+Conditions:
+• Age between 21 and 60
+• Income ≥ 25000
+Print whether the person is eligible for a loan.
+
+#!/bin/bash

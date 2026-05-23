@@ -1,0 +1,44 @@
+Problem 5: BMI Category Checker
+Take:
+• Weight in kg
+• Height in meters
+Formula:
+BMI = weight / (height * height)
+Print BMI category:
+• Underweight → BMI < 18.5
+• Normal → BMI between 18.5 and 24.9
+• Overweight → BMI ≥ 25
+Also print calculated BMI.
+
+#!/bin/bash
+read -p "enter weight in KG : " weight
+read -p "enter height in meters: " height
+bmi=$(($weight/($height**2)))
+echo "BMI is : $bmi "
+
+if [ $bmi -le 18 ]; then
+        echo " he/she is underweight"
+elif [[ $bmi -gt 18 && $bmi -lt 24 ]]; then
+        echo " he/she is Normal"
+else
+        echo " he/she is overweight"
+fi
+
+
+# handling decimals
+# bmi=$(echo "scale=2; ... " | bc) -- > to handle decimal values in bash, we can use bc command which is an arbitrary precision calculator language. The scale=2 sets the number of decimal places to 2.
+# bmi=$(echo "scale=2; $weight / ($height * $height)" | bc)
+
+#!/bin/bash
+read -p "enter weight in KG : " weight
+read -p "enter height in meters: " height
+bmi=$(echo "scale=3; $weight / ($height*$height)" | bc)
+echo "BMI is : $bmi "
+
+if [ $(echo " $bmi < 18.5" | bc) -eq 1 ]; then
+        echo " he/she is underweight"
+elif [ $(echo " $bmi > 18.5" | bc) -eq 1 ] && [ $(echo " $bmi < 24.9" | bc) -eq 1 ]; then
+        echo " he/she is Normal"
+else
+        echo " he/she is overweight"
+fi

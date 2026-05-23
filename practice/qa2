@@ -11,7 +11,7 @@ Print:
 • Discount (if any)
 • Final payable amount
 
-#! bin/bash
+#!bin/bash
 read -p "enter price : " price
 read -p "enter quantity : " quantity
 amount=$(($price*$quantity))
